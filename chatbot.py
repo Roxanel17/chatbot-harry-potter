@@ -15,6 +15,16 @@ if "messages" not in st.session_state:
     st.session_state.messages = [
         {"role": "system", "content": "You are an expert about Harry Potter. Only answer questions related to Harry Potter."}
     ]
+
+# Display previous chat messages
+for msg in st.session_state.messages[1:]:  # Skip system message (the initial system prompt)
+    if msg["role"] == "user":
+        with st.chat_message("user"):
+            st.markdown(msg["content"])
+    else:
+        with st.chat_message("assistant"):
+            st.markdown(msg["content"])
+
 # User Input at the bottom
 if prompt := st.chat_input("Ask me anything about Harry Potter..."):
     # Add user message to the chat history
@@ -27,14 +37,14 @@ if prompt := st.chat_input("Ask me anything about Harry Potter..."):
     )
 
     #Extract the assistant's reply
+    # assistant_message = response['choices'][0]['message']['content']
     assistant_message = response.choices[0].message.content
 
     # Add assistant response to the chat hostory
     st.session_state.messages.append({"role": "assistant", "content": assistant_message})
 
-# Display previous chat messages
-for msg in st.session_state.messages[1:]:  # Skip system message (the initial system prompt)
-    if msg["role"] == "user":
-        st.write(f"**You:** {msg['content']}")
-    else:
-        st.write(f"**Chatbot:** {msg['content']}")
+    # Show latest messages
+    with st.chat_message("user"):
+        st.markdown(prompt)
+    with st.chat_message("assistant"):
+        st.markdown(assistant_message)
