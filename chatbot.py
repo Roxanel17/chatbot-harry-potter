@@ -7,8 +7,9 @@ client = OpenAI(
   api_key = st.secrets["OPENAI_API_KEY"]
 )
 
-st.set_page_config(page_title="Harry Potter Chatbot")
-st.title("Harry Potter Chatbot")
+st.set_page_config(page_title = "Harry Potter Chatbot", page_icon = ":sparkles:", layout = "wide")
+# st.title("Harry Potter Chatbot")
+st.title("✨🧙🏻Harry Potter Chatbot✨🧙🏻")
 
 # Initialize session state to store chat history
 if "messages" not in st.session_state:
