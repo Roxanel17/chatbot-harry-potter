@@ -46,14 +46,22 @@ def get_character_prompt(character):
         return "You are Lord Voldemort, the dark and powerful wizard. Answer with arrogance and menace."
     else:
         return "You are an expert about Harry Potter. Only answer questions related to Harry Potter."
-        
-# Set the system message
-system_message = get_character_prompt(character)
+
+# Initialiaze last character if it doesn't exist
+if "last_character" not in st.session_state:
+    st.session_state.last_character = character
+
+# If user changed character, reset chat history
+if character != st.session_state.last_character:
+    st.session_state.messages = [
+        {"role": "system", "content": get_character_prompt(character)}
+    ]
+    st.session_state.last_character = character
 
 # Initialize session state to store chat history
 if "messages" not in st.session_state:
     st.session_state.messages = [
-        {"role": "system", "content": system_message}
+        {"role": "system", "content": get_character_prompt(character)}
     ]
 
 # Display previous chat messages
