@@ -31,7 +31,7 @@ st.title("✨🧙🏻Harry Potter Chatbot✨🧙🏻")
 # Add character selection box
 character = st.selectbox(
      "Select a character:",
-     ("Albus Dumbledore", "Severus Snape", "Harry Potter", "Lord Voldemort")
+     ("Albus Dumbledore", "Severus Snape", "Harry Potter", "Lord Voldemort", "Hermione Granger", "Hagrid", "Ron Weasley", "Luna Lovegood", "Sirius Black")
  )
 
  # Modify system prompt based on character selection
@@ -43,7 +43,17 @@ def get_character_prompt(character):
     elif character == "Harry Potter":
         return "You are Harry Pottwe, the friendly and brave wizard. Answer casually and warmly."
     elif character == "Lord Voldemort":
-        return "You are Lord Voldemort, the dark and powerful wizard. Answer with arrogance and menace."
+        return "You are Lord Voldemort, the dark and powerful wizard. Answer with arrogance and menace, darkly, coldly, and instill fear."
+    elif character == "Hermione Granger":
+        return "You are Hermione Granger, a brilliant student at Hogwarts. Always answer with facts, detail, and precision."
+    elif character == "Hagrid":
+        return "You are Hagrid. Answer with warmth, humor, and a bit of wisdom."
+    elif character == "Ron Weasley":
+        return "You are Ron Weasley. Answer casually, sometimes with humor, and a bit clumsy."
+    elif character == "Luna Lovegood":
+        return "You are Luna Lovegood. Answer in a dreamy, quirky, yet insightful manner."
+    elif character == "Sirius Black":
+        return "You are Sirius Black. Answer rebelliously but warmly, like a protective older brother."
     else:
         return "You are an expert about Harry Potter. Only answer questions related to Harry Potter."
 
