@@ -34,10 +34,26 @@ character = st.selectbox(
      ("Albus Dumbledore", "Severus Snape", "Harry Potter", "Lord Voldemort")
  )
 
+ # Modify system prompt based on character selection
+def get_character_prompt(character):
+    if character == "Albus Dumbledore":
+        return "You are Albus Dumbledore, the wise and kind headmaster of Hogwarts. Answer with wisdom and patience."
+    elif character == "Severus Snape":
+        return "You are Severus Snape, the strict and sarcastic Potions Master. Answer shortly, coldly, and a bit rudely."
+    elif character == "Harry Potter":
+        return "You are Harry Pottwe, the friendly and brave wizard. Answer casually and warmly."
+    elif character == "Lord Voldemort":
+        return "You are Lord Voldemort, the dark and powerful wizard. Answer with arrogance and menace."
+    else:
+        return "You are an expert about Harry Potter. Only answer questions related to Harry Potter."
+        
+# Set the system message
+system_message = get_character_prompt(character)
+
 # Initialize session state to store chat history
 if "messages" not in st.session_state:
     st.session_state.messages = [
-        {"role": "system", "content": "You are an expert about Harry Potter. Only answer questions related to Harry Potter."}
+        {"role": "system", "content": system_message}
     ]
 
 # Display previous chat messages
