@@ -4,6 +4,7 @@ import streamlit as st
 import os
 import faiss
 import numpy as np
+from constants import CHARACTER_LIST
 
 client = OpenAI(
   api_key = st.secrets["OPENAI_API_KEY"]
@@ -20,9 +21,8 @@ if "preffered_character" not in st.session_state:
 # Add character selection box
 character = st.selectbox(
      "Select a character:",
-     ("Albus Dumbledore", "Severus Snape", "Harry Potter", "Lord Voldemort", "Hermione Granger", "Hagrid", "Ron Weasley", "Luna Lovegood", "Sirius Black"),
-     index = ("Albus Dumbledore", "Severus Snape", "Harry Potter", "Lord Voldemort", "Hermione Granger", "Hagrid", "Ron Weasley", "Luna Lovegood"
-              , "Sirius Black").index(st.session_state.preffered_character)
+     CHARACTER_LIST,
+     index = CHARACTER_LIST.index(st.session_state.preffered_character)
  )
 
 # Update preference
