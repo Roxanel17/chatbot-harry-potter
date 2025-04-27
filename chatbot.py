@@ -4,7 +4,7 @@ import streamlit as st
 import os
 import faiss
 import numpy as np
-from constants import CHARACTER_LIST
+from constants import CHARACTER_LIST, HARRY_POTTER_KEYWORDS
 
 client = OpenAI(
   api_key = st.secrets["OPENAI_API_KEY"]
@@ -83,11 +83,8 @@ if prompt := st.chat_input("Ask me anything about Harry Potter..."):
     st.session_state.messages.append({"role": "user", "content": prompt})
 
     # Add a precheck message for nonrelated user inputs:
-
-    keywords = ["harry", "hogwards", "dumbledore", "ron", "hermione", "voldemort", "snape", "sirius", "luna", "hagrid", "granger", "weasley", "wizard", "magic"
-                , "quidditch", "wand", "spell", "potion", "house", "gryffindor", "slytherin", "ravenclaw", "hufflepuff", "diagon alley", "muggle", "goblin", "elf", "broomstick"]
     
-    if not any(keyword.lower() in prompt.lower() for keyword in keywords):
+    if not any(keyword.lower() in prompt.lower() for keyword in HARRY_POTTER_KEYWORDS):
         # If no keyword found, respond with a message
         assistant_message = " ⚡️ Sorry, I can only answer questions related to Harry Potter."
         
