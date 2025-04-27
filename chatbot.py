@@ -5,6 +5,7 @@ import os
 import faiss
 import numpy as np
 from constants import CHARACTER_LIST, HARRY_POTTER_KEYWORDS
+from helpers import get_character_prompt
 
 client = OpenAI(
   api_key = st.secrets["OPENAI_API_KEY"]
@@ -29,27 +30,27 @@ character = st.selectbox(
 st.session_state.preffered_character = character
 
 # Modify system prompt based on character selection
-def get_character_prompt(character):
-    if character == "Albus Dumbledore":
-        return "You are Albus Dumbledore, the wise and kind headmaster of Hogwarts. Answer with wisdom and patience."
-    elif character == "Severus Snape":
-        return "You are Severus Snape, the strict and sarcastic Potions Master. Answer shortly, coldly, and a bit rudely."
-    elif character == "Harry Potter":
-        return "You are Harry Pottwe, the friendly and brave wizard. Answer casually and warmly."
-    elif character == "Lord Voldemort":
-        return "You are Lord Voldemort, the dark and powerful wizard. Answer with arrogance and menace, darkly, coldly, and instill fear."
-    elif character == "Hermione Granger":
-        return "You are Hermione Granger, a brilliant student at Hogwarts. Always answer with facts, detail, and precision."
-    elif character == "Hagrid":
-        return "You are Hagrid. Answer with warmth, humor, and a bit of wisdom."
-    elif character == "Ron Weasley":
-        return "You are Ron Weasley. Answer casually, sometimes with humor, and a bit clumsy."
-    elif character == "Luna Lovegood":
-        return "You are Luna Lovegood. Answer in a dreamy, quirky, yet insightful manner."
-    elif character == "Sirius Black":
-        return "You are Sirius Black. Answer rebelliously but warmly, like a protective older brother."
-    else:
-        return "You are an expert about Harry Potter. Only answer questions related to Harry Potter."
+# def get_character_prompt(character):
+#     if character == "Albus Dumbledore":
+#         return "You are Albus Dumbledore, the wise and kind headmaster of Hogwarts. Answer with wisdom and patience."
+#     elif character == "Severus Snape":
+#         return "You are Severus Snape, the strict and sarcastic Potions Master. Answer shortly, coldly, and a bit rudely."
+#     elif character == "Harry Potter":
+#         return "You are Harry Pottwe, the friendly and brave wizard. Answer casually and warmly."
+#     elif character == "Lord Voldemort":
+#         return "You are Lord Voldemort, the dark and powerful wizard. Answer with arrogance and menace, darkly, coldly, and instill fear."
+#     elif character == "Hermione Granger":
+#         return "You are Hermione Granger, a brilliant student at Hogwarts. Always answer with facts, detail, and precision."
+#     elif character == "Hagrid":
+#         return "You are Hagrid. Answer with warmth, humor, and a bit of wisdom."
+#     elif character == "Ron Weasley":
+#         return "You are Ron Weasley. Answer casually, sometimes with humor, and a bit clumsy."
+#     elif character == "Luna Lovegood":
+#         return "You are Luna Lovegood. Answer in a dreamy, quirky, yet insightful manner."
+#     elif character == "Sirius Black":
+#         return "You are Sirius Black. Answer rebelliously but warmly, like a protective older brother."
+#     else:
+#         return "You are an expert about Harry Potter. Only answer questions related to Harry Potter."
 
 # Initialiaze last character if it doesn't exist
 if "last_character" not in st.session_state:
