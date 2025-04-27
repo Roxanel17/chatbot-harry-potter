@@ -7,11 +7,14 @@ This is a topic-specific chatbot focused on the Harry Potter universe, built usi
 - Memory: remembers previous questions and answers
 - Beautiful chat UI using Streamlit
 - Focused knowledge (Harry Potter domain)
+- Choosing character from a list
+- Personalize chatbot for each character
 
 ## Future Improvements 🔮
 - Upload files (like PDFs) to expand knowledge
 - Add a vector database for better search
 - Deploy the app online for public access
+- Add some fancier UX/UI design
 
 ## Installation 💻
 
