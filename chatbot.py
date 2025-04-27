@@ -10,31 +10,25 @@ client = OpenAI(
 )
 
 st.set_page_config(page_title = "Harry Potter Chatbot", page_icon = ":sparkles:", layout = "wide")
-# st.title("Harry Potter Chatbot")
 st.title("✨🧙🏻Harry Potter Chatbot✨🧙🏻")
 
-# Search knowledge using embeddings --> instead of feeding allt ext at once, you search smartly and only send relevant parts
-# create text chunks
-# def split_text(text, chunk_size=500):
-#     return [text[i:i + chunk_size] for i in range(0, len(text), chunk_size)]
-
-# # create embeddings and build a search index
-# def get_embeddings(text):
-#     result = client.embeddings.create(
-#         model="text-embedding-ada-002",
-#         input=text
-#     )
-#     return result['data'][0]['embedding']
-
-# chunks = split_text(st.sess)
+# Store and remember user preferences for a character
+# Check if character exists
+if "preffered_character" not in st.session_state:
+    st.session_state.preffered_character = "Albus Dumbledore" # default
 
 # Add character selection box
 character = st.selectbox(
      "Select a character:",
-     ("Albus Dumbledore", "Severus Snape", "Harry Potter", "Lord Voldemort", "Hermione Granger", "Hagrid", "Ron Weasley", "Luna Lovegood", "Sirius Black")
+     ("Albus Dumbledore", "Severus Snape", "Harry Potter", "Lord Voldemort", "Hermione Granger", "Hagrid", "Ron Weasley", "Luna Lovegood", "Sirius Black"),
+     index = ("Albus Dumbledore", "Severus Snape", "Harry Potter", "Lord Voldemort", "Hermione Granger", "Hagrid", "Ron Weasley", "Luna Lovegood"
+              , "Sirius Black").index(st.session_state.preffered_character)
  )
 
- # Modify system prompt based on character selection
+# Update preference
+st.session_state.preffered_character = character
+
+# Modify system prompt based on character selection
 def get_character_prompt(character):
     if character == "Albus Dumbledore":
         return "You are Albus Dumbledore, the wise and kind headmaster of Hogwarts. Answer with wisdom and patience."
@@ -113,7 +107,6 @@ if prompt := st.chat_input("Ask me anything about Harry Potter..."):
         )
 
         #Extract the assistant's reply
-        # assistant_message = response['choices'][0]['message']['content']
         assistant_message = response.choices[0].message.content
 
         # Add assistant response to the chat hostory
