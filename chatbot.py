@@ -28,6 +28,12 @@ st.title("✨🧙🏻Harry Potter Chatbot✨🧙🏻")
 
 # chunks = split_text(st.sess)
 
+# Add character selection box
+character = st.selectbox(
+     "Select a character:",
+     ("Albus Dumbledore", "Severus Snape", "Harry Potter", "Lord Voldemort")
+ )
+
 # Initialize session state to store chat history
 if "messages" not in st.session_state:
     st.session_state.messages = [
