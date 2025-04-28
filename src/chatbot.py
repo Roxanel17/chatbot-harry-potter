@@ -31,6 +31,12 @@ character = st.selectbox(
 # Update preference
 st.session_state.preffered_character = character
 
+# Add a button to start new chat
+if st.button("🔄 Start New Chat"):
+    st.session_state.messages = [
+        {"role": "system", "content": get_character_prompt(character)}
+    ]
+
 # Initialiaze last character if it doesn't exist
 if "last_character" not in st.session_state:
     st.session_state.last_character = character
