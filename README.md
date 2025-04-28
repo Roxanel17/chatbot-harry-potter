@@ -16,7 +16,7 @@ A magical AI chatbot that lets you have conversations with your favorite Harry P
 
 ---
 
-🌟 Tech Stack
+## 🌟 Tech Stack
 
 - 🤖 OpenAI GPT-3.5 API — for character conversations
 - 🐍Python — backend logic
