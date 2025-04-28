@@ -6,6 +6,8 @@ import faiss
 import numpy as np
 from constants import CHARACTER_LIST, HARRY_POTTER_KEYWORDS
 from helpers import get_character_prompt
+# from src import get_character_prompt, CHARACTER_LIST, HARRY_POTTER_KEYWORDS
+
 
 client = OpenAI(
   api_key = st.secrets["OPENAI_API_KEY"]
