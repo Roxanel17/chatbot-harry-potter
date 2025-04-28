@@ -1,3 +1,11 @@
+<p align = "center">
+  <img src = "https://img.shields.io/badge/Made%20with-OpenAI%20%26%20Streamlit-ff69b4?style=for-the-badge" alt = "Made with OpenAI and Streamlit">
+</p>
+<p align = "center">
+  <img src = "https://img.shields.io/badge/Python-3.9.13-blue?style=for-the-badge" alt = "Python Version">
+</p>
+
+
 # ✨🧙‍♂️ Harry Potter Chatbot
 
 A magical AI chatbot that lets you have conversations with your favorite Harry Potter characters — powered by **OpenAI's GPT-3.5** and styled beautifully with **Streamlit**.
