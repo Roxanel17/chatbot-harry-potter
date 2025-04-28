@@ -13,6 +13,16 @@ A magical AI chatbot that lets you have conversations with your favorite Harry P
 - 🔍 Pre-check: responds only to Harry Potter related questions
 - 🎯 Built with clean modular code (separated constants, helpers, etc.)
 
+
+---
+
+🌟 Tech Stack
+
+- 🤖 OpenAI GPT-3.5 API — for character conversations
+- 🐍Python — backend logic
+- 🌐 Streamlit — for web interface
+
+
 ---
 
 ## 🔮 Future Improvements
