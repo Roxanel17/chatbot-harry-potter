@@ -4,7 +4,7 @@ import streamlit as st
 import os
 import faiss
 import numpy as np
-from constants import CHARACTER_LIST, HARRY_POTTER_KEYWORDS, CHARACTER_AVATARS
+from constants import CHARACTER_LIST, HARRY_POTTER_KEYWORDS, CHARACTER_AVATARS, CHARACTER_HOUSE, HOUSE_COLORS
 from helpers import get_character_prompt
 # from src import get_character_prompt, CHARACTER_LIST, HARRY_POTTER_KEYWORDS
 
@@ -15,6 +15,7 @@ client = OpenAI(
 
 st.set_page_config(page_title = "Harry Potter Chatbot", page_icon = ":sparkles:", layout = "wide")
 st.title("✨🧙🏻Harry Potter Chatbot✨🧙🏻")
+
 
 # Store and remember user preferences for a character
 # Check if character exists
@@ -27,6 +28,11 @@ character = st.selectbox(
      CHARACTER_LIST,
      index = CHARACTER_LIST.index(st.session_state.preffered_character)
  )
+
+
+# Get the house color
+house = CHARACTER_HOUSE.get(character, "None")
+bubble_color = HOUSE_COLORS.get(house, "#aaaaaa")
 
 # Update preference
 st.session_state.preffered_character = character
@@ -81,7 +87,15 @@ if prompt := st.chat_input("Ask me anything about Harry Potter..."):
         with st.chat_message("user"):
             st.markdown(prompt)
         with st.chat_message("assistant", avatar = CHARACTER_AVATARS.get(character)):
-            st.markdown(assistant_message)
+            # st.markdown(assistant_message)
+            st.markdown(
+                f""" 
+                <div style = "background-color: {bubble_color}; padding: 10px; border-radius: 10px; color: white;">
+                    {assistant_message}
+                </div>
+                """,
+                unsafe_allow_html = True
+            )
     else:
         # Get assistant response (from OpenAI)
         response = client.chat.completions.create(
@@ -99,4 +113,12 @@ if prompt := st.chat_input("Ask me anything about Harry Potter..."):
         with st.chat_message("user"):
             st.markdown(prompt)
         with st.chat_message("assistant", avatar = CHARACTER_AVATARS.get(character)):
-            st.markdown(assistant_message)
+            # st.markdown(assistant_message)
+            st.markdown(
+                f""" 
+                <div style = "background-color: {bubble_color}; padding: 10px; border-radius: 10px; color: white;">
+                    {assistant_message}
+                </div>
+                """,
+                unsafe_allow_html = True
+            )
