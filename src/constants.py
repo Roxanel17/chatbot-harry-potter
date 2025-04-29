@@ -33,3 +33,16 @@ CHARACTER_AVATARS = {
     "Luna Lovegood": "assets/luna.png",
     "Sirius Black": "assets/sirius.png"
 }
+
+CHARACTER_HOUSE = {
+    "Albus Dumbledore": "Gryffindor",
+    "Severus Snape": "Slytherin",
+    "Harry Potter": "Gryffindor",
+    "Lord Voldemort": "Slytherin",
+    "Hermione Granger": "Gryffindor",
+    "Hagrid": "Gryffindor",
+    "Dobby": "None",
+    "Ron Weasley": "Gryffindor",
+    "Luna Lovegood": "assets/luna.png",
+    "Sirius Black": "Gryffindor",
+}
