@@ -19,3 +19,17 @@ HARRY_POTTER_KEYWORDS = [
     "house", "gryffindor", "slytherin", "ravenclaw", "hufflepuff", "diagon alley", "muggle",
     "goblin", "elf", "broomstick"
 ]
+
+# Character to avatar image mapping
+CHARACTER_AVATARS = {
+    "Albus Dumbledore": "assets/dumbledore.png",
+    "Severus Snape": "assets/snape.png",
+    "Harry Potter": "assets/harry.png",
+    "Lord Voldemort": "assets/voldemort.png",
+    "Hermione Granger": "assets/hermione.png",
+    "Hagrid": "assets/hagrid.png",
+    "Dobby": "assets/dobby.png",
+    "Ron Weasley": "assets/ron.png",
+    "Luna Lovegood": "assets/luna.png",
+    "Sirius Black": "assets/sirius.png"
+}
