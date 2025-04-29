@@ -46,3 +46,11 @@ CHARACTER_HOUSE = {
     "Luna Lovegood": "assets/luna.png",
     "Sirius Black": "Gryffindor",
 }
+
+HOUSE_COLORS = {
+    "Gryffindor": "#ae0001",  # deep red
+    "Slytherin": "#2a623d",   # green
+    "Ravenclaw": "#222f5b",   # dark blue
+    "Hufflepuff": "#ecb939",  # gold/yellow
+    "None": "#aaaaaa"         # neutral gray
+}
