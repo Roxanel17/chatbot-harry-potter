@@ -4,7 +4,7 @@ import streamlit as st
 import os
 import faiss
 import numpy as np
-from constants import CHARACTER_LIST, HARRY_POTTER_KEYWORDS
+from constants import CHARACTER_LIST, HARRY_POTTER_KEYWORDS, CHARACTER_AVATARS
 from helpers import get_character_prompt
 # from src import get_character_prompt, CHARACTER_LIST, HARRY_POTTER_KEYWORDS
 
@@ -80,7 +80,7 @@ if prompt := st.chat_input("Ask me anything about Harry Potter..."):
         # Show message
         with st.chat_message("user"):
             st.markdown(prompt)
-        with st.chat_message("assistant"):
+        with st.chat_message("assistant", avatar = CHARACTER_AVATARS.get(character)):
             st.markdown(assistant_message)
     else:
         # Get assistant response (from OpenAI)
@@ -98,5 +98,5 @@ if prompt := st.chat_input("Ask me anything about Harry Potter..."):
         # Show latest messages
         with st.chat_message("user"):
             st.markdown(prompt)
-        with st.chat_message("assistant"):
+        with st.chat_message("assistant", avatar = CHARACTER_AVATARS.get(character)):
             st.markdown(assistant_message)
