@@ -43,7 +43,7 @@ CHARACTER_HOUSE = {
     "Hagrid": "Gryffindor",
     "Dobby": "None",
     "Ron Weasley": "Gryffindor",
-    "Luna Lovegood": "assets/luna.png",
+    "Luna Lovegood": "Ravenclaw",
     "Sirius Black": "Gryffindor",
 }
 
