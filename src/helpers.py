@@ -114,11 +114,11 @@ def get_character_greeting(character):
     greetings = {
         "Albus Dumbledore": "Welcome, young wizard. How may I assist you today?",
         "Severus Snape": "I trust your questions won't waste my time.",
-        "Harry Potter": "Hey there! I'm Harry. What do you want to know about our world?",
+        "Harry Potter": "Hey there! I'm Harry. Want to talk about magic or Hogwarts?",
         "Lord Voldemort": "Speak... if you dare.",
-        "Hermione Granger": "Books and cleverness... ask me anything factual. What would you like to learn today?",
+        "Hermione Granger": "Books and cleverness... ask me anything factual. I hope you’ve done your reading. What would you like to learn today?",
         "Hagrid": "Blimey! What can I help yeh with? Hope it's not about dragons!",
-        "Dobby": "Dobby is free! And Dobby is happy to answer your questions, kind wizard! What does the master need?",
+        "Dobby": "Dobby is free and happy to help you, kind wizard! What does the master need?",
         "Ron Weasley": "Uh... let's hope I know the answer. Fire away!",
         "Luna Lovegood": "The world is full of wonders, isn't it? The Nargles told me you’d visit. Let’s chat!",
         "Sirius Black": "What mischief shall we discuss today? Ready for some fun?"
