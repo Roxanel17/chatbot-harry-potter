@@ -29,7 +29,6 @@ character = st.selectbox(
      index = CHARACTER_LIST.index(st.session_state.preffered_character)
  )
 
-
 # Get the house color
 house = CHARACTER_HOUSE.get(character, "None")
 bubble_color = HOUSE_COLORS.get(house, "#aaaaaa")
@@ -86,8 +85,11 @@ if prompt := st.chat_input("Ask me anything about Harry Potter..."):
         # Show message
         with st.chat_message("user"):
             st.markdown(prompt)
+        
+        # Typing animations for replies
         with st.chat_message("assistant", avatar = CHARACTER_AVATARS.get(character)):
-            # st.markdown(assistant_message)
+            typing_placeholder = st.empty()
+            typing_placeholder.markdown("⚡️ **Thinking...** ✨") # Typing animation for reply
             st.markdown(
                 f""" 
                 <div style = "background-color: {bubble_color}; padding: 10px; border-radius: 10px; color: white;">
@@ -97,6 +99,18 @@ if prompt := st.chat_input("Ask me anything about Harry Potter..."):
                 unsafe_allow_html = True
             )
     else:
+        # Show latest messages
+        with st.chat_message("user"):
+            st.markdown(prompt)
+
+        # Typing animations for replies
+        with st.chat_message("assistant", avatar = CHARACTER_AVATARS.get(character)):
+            typing_placeholder = st.empty()
+            typing_placeholder.markdown("⚡️ **Thinking...** ✨") # Typing animation for reply
+        
+        # Add a delay to simulate typing
+        # time.sleep(2)
+
         # Get assistant response (from OpenAI)
         response = client.chat.completions.create(
             model="gpt-3.5-turbo",
@@ -109,16 +123,12 @@ if prompt := st.chat_input("Ask me anything about Harry Potter..."):
         # Add assistant response to the chat hostory
         st.session_state.messages.append({"role": "assistant", "content": assistant_message})
 
-        # Show latest messages
-        with st.chat_message("user"):
-            st.markdown(prompt)
-        with st.chat_message("assistant", avatar = CHARACTER_AVATARS.get(character)):
-            # st.markdown(assistant_message)
-            st.markdown(
-                f""" 
-                <div style = "background-color: {bubble_color}; padding: 10px; border-radius: 10px; color: white;">
-                    {assistant_message}
-                </div>
-                """,
-                unsafe_allow_html = True
-            )
+        # Replace placeholder with the real chatbot response:
+        typing_placeholder.markdown(
+            f""" 
+            <div style = "background-color: {bubble_color}; padding: 10px; border-radius: 10px; color: white;">
+                {assistant_message}
+            </div>
+            """,
+            unsafe_allow_html = True
+        )
