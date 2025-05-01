@@ -20,7 +20,10 @@ A magical AI chatbot that lets you have conversations with your favorite Harry P
 - 🧠 Memory: remembers the ongoing conversation
 - 🔍 Pre-check: responds only to Harry Potter related questions
 - 🎯 Built with clean modular code (separated constants, helpers, etc.)
-
+- 📸 Animated profile pictures for each character
+- 🎨 Background color theme based on selected character
+- 💬 Dynamic streaming responses (ChatGPT-like typing effect)
+- 🛡️ House-colored profile picture borders (Gryffindor red, Slytherin green, etc.)
 
 ---
 
@@ -35,10 +38,6 @@ A magical AI chatbot that lets you have conversations with your favorite Harry P
 
 ## 🔮 Future Improvements
 
-- 📸 Animated profile pictures for each character
-- 🎨 Background color theme based on selected character
-- 💬 Dynamic streaming responses (ChatGPT-like typing effect)
-- 🛡️ House-colored profile picture borders (Gryffindor red, Slytherin green, etc.)
 - 📄 Upload files (like PDFs) to expand knowledge
 - 🧠 Add a vector database for better search
 - ☁️ Deploy the app online for public access
