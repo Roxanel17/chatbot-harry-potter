@@ -117,7 +117,16 @@ if prompt := st.chat_input("Ask me anything about Harry Potter..."):
     precheck = client.chat.completions.create(
         model="gpt-3.5-turbo",
         messages=[
-            {"role": "system", "content": "Is the following question about the Harry Potter universe? Respond only with 'Yes' or 'No'."},
+            {
+                "role": "system", 
+                # "content": "Is the following question about the Harry Potter universe? Respond only with 'Yes' or 'No'." #prompt 1
+                "content": (
+                    "You are an assistant that helps detect if a user prompt is about the Harry Potter universe. "
+                    "If the question relates to any character, event, spell, location, house-elf, or concept from Harry Potter, "
+                    "respond with 'Yes'. Otherwise, respond 'No'. Only respond with 'Yes' or 'No'."
+                ) #prompt 2 -- too general
+                
+            },
             {"role": "user", "content": prompt}
         ]
     )
