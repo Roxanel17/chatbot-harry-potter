@@ -110,7 +110,20 @@ if prompt := st.chat_input("Ask me anything about Harry Potter..."):
         st.markdown(prompt)
 
     # Add a precheck message for nonrelated user inputs:
-    if not any(keyword.lower() in prompt.lower() for keyword in HARRY_POTTER_KEYWORDS):
+    # if not any(keyword.lower() in prompt.lower() for keyword in HARRY_POTTER_KEYWORDS):
+
+    # Add a LLM-base precheck because sometimes using keywords-based checking classifies a related question as non-related
+    # --- LLM precheck to detect Harry Potter context ---
+    precheck = client.chat.completions.create(
+        model="gpt-3.5-turbo",
+        messages=[
+            {"role": "system", "content": "Is the following question about the Harry Potter universe? Respond only with 'Yes' or 'No'."},
+            {"role": "user", "content": prompt}
+        ]
+    )
+    is_related = precheck.choices[0].message.content.strip().lower()
+
+    if is_related.startswith("no"):
         # If no keyword found, respond with a message
         assistant_message = " ⚡️ Sorry, I can only answer questions related to Harry Potter."
         
