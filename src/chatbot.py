@@ -7,6 +7,7 @@ from constants import CHARACTER_LIST, HARRY_POTTER_KEYWORDS, CHARACTER_AVATARS, 
 from helpers import get_character_prompt, get_character_greeting
 import time
 
+
 # --- 1. Setup ---
 
 client = OpenAI(
@@ -137,7 +138,7 @@ if prompt := st.chat_input("Ask me anything about Harry Potter..."):
             typing_placeholder = st.empty()
             # typing_placeholder.markdown("🪄 Thinking<span style='font-size:24px'>...</span> ✨", unsafe_allow_html=True)
             
-            # Realistic typing dots animation for reply
+            # V1: Realistic typing dots animation for reply
             for _ in range(2):  # loop cycles
                 for dots in [".", "..", "..."]:
                     typing_placeholder.markdown(f"🪄 **Thinking{dots}** ✨", unsafe_allow_html=True)
