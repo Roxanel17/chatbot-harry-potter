@@ -18,7 +18,7 @@ st.title("✨🧙🏻Harry Potter Chatbot✨🧙🏻")
 # Store and remember user preferences for a character
 # Check if character exists
 if "preffered_character" not in st.session_state:
-    st.session_state.preffered_character = "Albus Dumbledore" # default
+    st.session_state.preffered_character = "Harry Potter" # default
 
 # Add character selection box
 character = st.selectbox(
@@ -87,15 +87,8 @@ if prompt := st.chat_input("Ask me anything about Harry Potter..."):
         # Typing animations for replies
         with st.chat_message("assistant", avatar = CHARACTER_AVATARS.get(character)):
             typing_placeholder = st.empty()
-            typing_placeholder.markdown("⚡️ **Thinking...** ✨") # Typing animation for reply
-            # st.markdown(
-            #     f""" 
-            #     <div style = "background-color: {bubble_color}; padding: 10px; border-radius: 10px; color: white;">
-            #         {assistant_message}
-            #     </div>
-            #     """,
-            #     unsafe_allow_html = True
-            # )
+            # typing_placeholder.markdown("⚡️ **Thinking...** ✨") # Typing animation for reply
+            typing_placeholder.markdown("⚡️ Thinking<span style='font-size:24px'>...</span> ✨", unsafe_allow_html=True)
             st.markdown(
                 f"""
                 <div style = "display: flex' align-items: center; gap: 10px;">
@@ -115,7 +108,8 @@ if prompt := st.chat_input("Ask me anything about Harry Potter..."):
         # Typing animations for replies
         with st.chat_message("assistant", avatar = CHARACTER_AVATARS.get(character)):
             typing_placeholder = st.empty()
-            typing_placeholder.markdown("⚡️ **Thinking...** ✨") # Typing animation for reply
+            # typing_placeholder.markdown("⚡️ **Thinking...** ✨") # Typing animation for reply
+            typing_placeholder.markdown("⚡️ Thinking<span style='font-size:24px'>...</span> ✨", unsafe_allow_html=True)
         
         # Add a delay to simulate typing
         # time.sleep(2)
@@ -141,14 +135,3 @@ if prompt := st.chat_input("Ask me anything about Harry Potter..."):
             """,
             unsafe_allow_html = True
         )
-        # typing_placeholder.markdown(
-        #     f"""
-        #         <div style = "display: flex' align-items: cneter; gap: 10px;">
-        #             <img src = "{CHARACTER_AVATARS.get(character)}" style = "width: 60px; height: 60px; border-radius: 50%; object-fit: cover;">
-        #             <div style = "background-color: {bubble_color}; padding: 10px; border-radius: 10px; color: white; flex-grow: 1;">
-        #                 {assistant_message}
-        #             </div>
-        #         </div>
-        #         """,
-        #         unsafe_allow_html = True
-        # )
