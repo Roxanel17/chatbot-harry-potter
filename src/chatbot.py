@@ -1,12 +1,10 @@
 from openai import OpenAI
 import streamlit as st
-# from dotenv import load_dotenv
 import os
 import faiss
 import numpy as np
 from constants import CHARACTER_LIST, HARRY_POTTER_KEYWORDS, CHARACTER_AVATARS, CHARACTER_HOUSE, HOUSE_COLORS
 from helpers import get_character_prompt
-# from src import get_character_prompt, CHARACTER_LIST, HARRY_POTTER_KEYWORDS
 
 
 client = OpenAI(
@@ -90,10 +88,21 @@ if prompt := st.chat_input("Ask me anything about Harry Potter..."):
         with st.chat_message("assistant", avatar = CHARACTER_AVATARS.get(character)):
             typing_placeholder = st.empty()
             typing_placeholder.markdown("⚡️ **Thinking...** ✨") # Typing animation for reply
+            # st.markdown(
+            #     f""" 
+            #     <div style = "background-color: {bubble_color}; padding: 10px; border-radius: 10px; color: white;">
+            #         {assistant_message}
+            #     </div>
+            #     """,
+            #     unsafe_allow_html = True
+            # )
             st.markdown(
-                f""" 
-                <div style = "background-color: {bubble_color}; padding: 10px; border-radius: 10px; color: white;">
-                    {assistant_message}
+                f"""
+                <div style = "display: flex' align-items: center; gap: 10px;">
+                    <img src = "{CHARACTER_AVATARS.get(character)}" style = "width: 60px; height: 60px; border-radius: 50%; object-fit: cover;">
+                    <div style = "background-color: {bubble_color}; padding: 10px; border-radius: 10px; color: white; flex-grow: 1;">
+                        {assistant_message}
+                    </div>
                 </div>
                 """,
                 unsafe_allow_html = True
@@ -132,3 +141,14 @@ if prompt := st.chat_input("Ask me anything about Harry Potter..."):
             """,
             unsafe_allow_html = True
         )
+        # typing_placeholder.markdown(
+        #     f"""
+        #         <div style = "display: flex' align-items: cneter; gap: 10px;">
+        #             <img src = "{CHARACTER_AVATARS.get(character)}" style = "width: 60px; height: 60px; border-radius: 50%; object-fit: cover;">
+        #             <div style = "background-color: {bubble_color}; padding: 10px; border-radius: 10px; color: white; flex-grow: 1;">
+        #                 {assistant_message}
+        #             </div>
+        #         </div>
+        #         """,
+        #         unsafe_allow_html = True
+        # )
