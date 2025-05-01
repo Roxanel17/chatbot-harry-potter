@@ -5,6 +5,7 @@ import faiss
 import numpy as np
 from constants import CHARACTER_LIST, HARRY_POTTER_KEYWORDS, CHARACTER_AVATARS, CHARACTER_HOUSE, HOUSE_COLORS
 from helpers import get_character_prompt
+import time
 
 
 client = OpenAI(
@@ -87,15 +88,12 @@ if prompt := st.chat_input("Ask me anything about Harry Potter..."):
         # Typing animations for replies
         with st.chat_message("assistant", avatar = CHARACTER_AVATARS.get(character)):
             typing_placeholder = st.empty()
-            # typing_placeholder.markdown("⚡️ **Thinking...** ✨") # Typing animation for reply
-            typing_placeholder.markdown("⚡️ Thinking<span style='font-size:24px'>...</span> ✨", unsafe_allow_html=True)
+            typing_placeholder.markdown("🪄 Thinking<span style='font-size:24px'>...</span> ✨", unsafe_allow_html=True) # Typing animation for reply
+            time.sleep(0.2)
             st.markdown(
-                f"""
-                <div style = "display: flex' align-items: center; gap: 10px;">
-                    <img src = "{CHARACTER_AVATARS.get(character)}" style = "width: 60px; height: 60px; border-radius: 50%; object-fit: cover;">
-                    <div style = "background-color: {bubble_color}; padding: 10px; border-radius: 10px; color: white; flex-grow: 1;">
-                        {assistant_message}
-                    </div>
+                f""" 
+                <div style = "background-color: {bubble_color}; padding: 10px; border-radius: 10px; color: white;">
+                    {assistant_message}
                 </div>
                 """,
                 unsafe_allow_html = True
@@ -108,11 +106,10 @@ if prompt := st.chat_input("Ask me anything about Harry Potter..."):
         # Typing animations for replies
         with st.chat_message("assistant", avatar = CHARACTER_AVATARS.get(character)):
             typing_placeholder = st.empty()
-            # typing_placeholder.markdown("⚡️ **Thinking...** ✨") # Typing animation for reply
-            typing_placeholder.markdown("⚡️ Thinking<span style='font-size:24px'>...</span> ✨", unsafe_allow_html=True)
+            typing_placeholder.markdown("🪄 Thinking<span style='font-size:24px'>...</span> ✨", unsafe_allow_html=True) # Typing animation for reply
         
         # Add a delay to simulate typing
-        # time.sleep(2)
+        time.sleep(0.2)
 
         # Get assistant response (from OpenAI)
         response = client.chat.completions.create(
