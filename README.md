@@ -12,18 +12,37 @@ A magical AI chatbot that lets you have conversations with your favorite Harry P
 
 🎩 Choose to chat with Dumbledore, Snape, Harry Potter, Hagrid, Dobby, and more — each character has their own speaking style, memories, and magical personalities!
 
+
 ---
 
 ## 🚀 Features
 
 - 🧙 Character selection with customized behavior (wise Dumbledore, sarcastic Snape, clumsy Dobby, etc.)
-- 🧠 Memory: remembers the ongoing conversation
+- 🧠 Multi-character memory: Each character remembers their own conversation
 - 🔍 Pre-check: responds only to Harry Potter related questions
-- 🎯 Built with clean modular code (separated constants, helpers, etc.)
-- 📸 Animated profile pictures for each character
-- 🎨 Background color theme based on selected character
-- 💬 Dynamic streaming responses (ChatGPT-like typing effect)
+- 📸 Profile pictures for each character
 - 🛡️ House-colored profile picture borders (Gryffindor red, Slytherin green, etc.)
+- 🎨 Background color theme based on selected character
+- 🪄 Typing animation for realistic responses
+- 💬 Dynamic streaming responses (ChatGPT-like typing effect)
+- 🔄 Reset conversations without losing others
+- 🎯 Built with clean modular code (separated constants, helpers, etc.)
+
+
+---
+
+## 🧙 How It Works
+
+Switch between iconic Harry Potter characters — like Dumbledore, Snape, Dobby, and more — and enjoy unique, immersive conversations.  
+Each character has their own:
+
+- 🎭 Voice and tone
+- 🧠 Persistent memory
+- ✨ Magical personality
+
+You can talk to Dumbledore like a wise headmaster, or Dobby like an excited, free elf!  
+Switching back to a character resumes where you left off — like picking up a magical journal!
+
 
 ---
 
