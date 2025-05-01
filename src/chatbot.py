@@ -44,39 +44,7 @@ house = CHARACTER_HOUSE.get(character, "None")
 bubble_color = HOUSE_COLORS.get(house, "#aaaaaa")
 avatar_url = CHARACTER_AVATARS.get(character)
 
-# --- 4. Show Character Avatar (Pulse if just replied) ---
-
-if st.session_state.bot_just_replied:
-    st.markdown(
-        f"""
-        <style>
-        .pulse {{
-            animation: pulse-animation 1.5s ease-in-out;
-        }}
-        @keyframes pulse-animation {{
-            0% {{ transform: scale(1); }}
-            50% {{ transform: scale(1.1); }}
-            100% {{ transform: scale(1); }}
-        }}
-        </style>
-        <div style="text-align: center;">
-            <img src="{avatar_url}" width="150" class="pulse" style="border-radius: 50%;">
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
-    st.session_state.bot_just_replied = False
-else:
-    st.markdown(
-        f"""
-        <div style="text-align: center;">
-            <img src="{avatar_url}" width="150" style="border-radius: 50%;">
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
-
-# --- 5. Reset Chat if Character Changed or Button Clicked ---
+# --- 4. Reset Chat if Character Changed or Button Clicked ---
 
 # Add a button to start new chat
 if st.button("🔄 Start New Chat"):
@@ -101,7 +69,7 @@ if "messages" not in st.session_state:
         {"role": "system", "content": get_character_prompt(character)}
     ]
 
-# --- 6. Display Chat History ---
+# --- 5. Display Chat History ---
 
 # Display previous chat messages
 for msg in st.session_state.messages[1:]:  # Skip system message (the initial system prompt)
@@ -120,7 +88,7 @@ for msg in st.session_state.messages[1:]:  # Skip system message (the initial sy
                 unsafe_allow_html=True
             )
 
-# --- 7. User Input ---
+# --- 6. User Input ---
 
 # User Input at the bottom
 if prompt := st.chat_input("Ask me anything about Harry Potter..."):
