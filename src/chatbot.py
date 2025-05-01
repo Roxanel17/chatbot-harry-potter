@@ -4,7 +4,7 @@ import os
 import faiss
 import numpy as np
 from constants import CHARACTER_LIST, HARRY_POTTER_KEYWORDS, CHARACTER_AVATARS, CHARACTER_HOUSE, HOUSE_COLORS
-from helpers import get_character_prompt
+from helpers import get_character_prompt, get_character_greeting
 import time
 
 # --- 1. Setup ---
@@ -33,6 +33,12 @@ character = st.selectbox(
      CHARACTER_LIST,
      index = CHARACTER_LIST.index(st.session_state.preffered_character)
  )
+
+# Show specific character greeting
+st.markdown(
+    f"<p style='text-align: center; font-size: 18px; margin-top: -10px; color: #cccccc;'>{get_character_greeting(character)}</p>",
+    unsafe_allow_html=True
+)
 
 # Update preference
 st.session_state.preffered_character = character
