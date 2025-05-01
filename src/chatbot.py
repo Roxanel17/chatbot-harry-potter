@@ -120,11 +120,28 @@ if prompt := st.chat_input("Ask me anything about Harry Potter..."):
             {
                 "role": "system", 
                 # "content": "Is the following question about the Harry Potter universe? Respond only with 'Yes' or 'No'." #prompt 1
+                # "content": (
+                #     "You are an assistant that helps detect if a user prompt is about the Harry Potter universe. "
+                #     "If the question relates to any character, event, spell, location, house-elf, or concept from Harry Potter, "
+                #     "respond with 'Yes'. Otherwise, respond 'No'. Only respond with 'Yes' or 'No'."
+                # ) #prompt 2 -- too general
+                # Few-Shot prompting:
                 "content": (
-                    "You are an assistant that helps detect if a user prompt is about the Harry Potter universe. "
-                    "If the question relates to any character, event, spell, location, house-elf, or concept from Harry Potter, "
-                    "respond with 'Yes'. Otherwise, respond 'No'. Only respond with 'Yes' or 'No'."
-                ) #prompt 2 -- too general
+                    "You're a classifier assistant. Your task is to determine if a user's question is related to the world of Harry Potter.\n\n"
+                    "A questions is related if it:\n"
+                    "- References a character, creature, house-elf, spell, place, object, magical concept, or event from Harry Potter\n"
+                    "- Involves specific behaviors, memories, or traits of known chracters (e.g. 'Do you like socks?' is related to Dobby)\n"
+                    "- Mentions Hogwarts, Diagon Alley, Quidditch, or any other Harry Potter-related term\n"
+                    "- Is vague but being asked to a Harry Potter character (like 'Who was kind to you?')\n\n"
+                    "Examples:\n"
+                    "Q: Do you like socks? → Yes\n>"
+                    "Q: What's your favorite food? → Yes\n>"
+                    "Q: How do you feel about Dumbledore? → Yes\n>"
+                    "Q: What is 2 + 2? → No\n>"
+                    "Q: Tell me a jock about cats. → No\n\n>"
+                    "Respond only with 'Yes' or 'No'.\n"
+                    "If you are unsure, respond with 'No'.\n"
+                )
                 
             },
             {"role": "user", "content": prompt}
