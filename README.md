@@ -8,9 +8,9 @@
 
 # ✨🧙‍♂️ Harry Potter Chatbot
 
-A magical AI chatbot that lets you have conversations with your favorite Harry Potter characters — powered by **OpenAI's GPT-3.5** and styled beautifully with **Streamlit**.
+A magical AI chatbot that lets you talk to Harry Potter characters — each with their own memory, voice, tone, and quirks — powered by **OpenAI's GPT-3.5** and styled beautifully with **Streamlit**.
 
-🎩 Choose to chat with Dumbledore, Snape, Harry Potter, Hagrid, Dobby, and more — each character has their own speaking style, memories, and magical personalities!
+🎩 Choose to chat with Dumbledore, Snape, Harry, Hagrid, Dobby, and more — each character has their own speaking style, memories, and magical personalities!
 
 
 ---
@@ -18,31 +18,55 @@ A magical AI chatbot that lets you have conversations with your favorite Harry P
 ## 🚀 Features
 
 - 🧙 Character selection with customized behavior (wise Dumbledore, sarcastic Snape, clumsy Dobby, etc.)
-- 🧠 Multi-character memory: Each character remembers their own conversation
-- 🔍 Pre-check: responds only to Harry Potter related questions
-- 📸 Profile pictures for each character
-- 🛡️ House-colored profile picture borders (Gryffindor red, Slytherin green, etc.)
+- 🧠 Multi-character memory: Each character remembers their own conversation 
+- 🔮 AI-powered precheck: LLM decides if a question is Harry Potter–related 
+- 📸 Profile avatars for each character 
+- 🛡️ House-colored chat styling (Gryffindor red, Slytherin green...) 
 - 🎨 Background color theme based on selected character
-- 🪄 Typing animation for realistic responses
-- 💬 Dynamic streaming responses (ChatGPT-like typing effect)
-- 🔄 Reset conversations without losing others
+- 🪄 Typing animation (dot-dot-dot style) 
+- 🔄 Reset chats per character, not globally 
 - 🎯 Built with clean modular code (separated constants, helpers, etc.)
+- 🧾 Few-shot prompting: responses match known traits and stories
+
+
+---
+
+## 🧠 Smarter AI Understanding
+
+This chatbot doesn't just rely on keywords — it uses a language model to understand the *meaning* of your question.  
+That means you can ask things like:
+
+- “Do you like socks?” (Dobby)
+- “Who was kind to you?” (Luna, Dobby)
+- “How do you feel about Snape?” (Harry)
+
+The bot will **intelligently detect** whether your question relates to the Harry Potter universe — and only respond if it is.
+
+You also get:
+
+- ✨ Few-shot prompting per character (each one responds in their unique style)
+- 🔁 Context-aware replies based on memory
+- 💬 Dynamic tone and vocabulary (Dobby says "Yippie!", Snape is cold and sarcastic)
 
 
 ---
 
 ## 🧙 How It Works
 
-Switch between iconic Harry Potter characters — like Dumbledore, Snape, Dobby, and more — and enjoy unique, immersive conversations.  
+Switch between iconic Harry Potter characters. You can talk to Dumbledore like a wise headmaster, or Dobby like an excited, free elf!  
 Each character has their own:
 
 - 🎭 Voice and tone
 - 🧠 Persistent memory
 - ✨ Magical personality
 
-You can talk to Dumbledore like a wise headmaster, or Dobby like an excited, free elf!  
-Switching back to a character resumes where you left off — like picking up a magical journal!
+When you switch back to a character, their conversation continues where you left off — like picking up a magical diary!
 
+Each character is powered by a custom prompt, using:
+
+- 💬 Example dialogues (few-shot prompting)
+- 🎨 Personality traits (tone, quirks, style)
+- 🔁 Per-character memory tracking
 
 ---
 
@@ -60,6 +84,7 @@ Switching back to a character resumes where you left off — like picking up a m
 - 📄 Upload files (like PDFs) to expand knowledge
 - 🧠 Add a vector database for better search
 - ☁️ Deploy the app online for public access
+- ✨ Prompt refactoring via JSON (character modularity)
 
 
 ---
