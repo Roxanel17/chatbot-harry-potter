@@ -102,7 +102,6 @@ harry-potter-chatbot/
 ├── assets/                     # Character avatars
 │   ├── old/                    # Original images
 │   ├── processed/              # Resized images
-├── screenshots/                # See how the app works
 ├── src/
 │   ├── chatbot.py              # Main Streamlit app
 │   ├── helpers.py              # Functions for prompts and greetings
