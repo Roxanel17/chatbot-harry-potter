@@ -12,6 +12,16 @@ A magical AI chatbot that lets you talk to Harry Potter characters — each with
 
 🎩 Choose to chat with Dumbledore, Snape, Harry, Hagrid, Dobby, and more — each character has their own speaking style, memories, and magical personalities!
 
+[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://chatbot-harry-potter.streamlit.app)
+
+
+---
+
+## 🚀 Live Demo
+
+Try it live:  
+👉 **[Open Harry Potter Chatbot](https://chatbot-harry-potter.streamlit.app)**
+
 
 ---
 
@@ -70,21 +80,27 @@ Each character is powered by a custom prompt, using:
 - 🎨 Personality traits (tone, quirks, style)
 - 🔁 Per-character memory tracking
 
+
 ---
 
 ## 🌟 Tech Stack
 
-- 🤖 OpenAI GPT-3.5 API — for character conversations
+- 🤖 OpenAI GPT-3.5 Turbo API — for character conversations
 - 🐍Python — backend logic
 - 🌐 Streamlit — for web interface
+- JSON prompt templates
+- Hosted on **Streamlit Cloud**
 
 
 ---
 
-## 🔮 Future Improvements
+## 🔮 Future Improvements and Ideas
 
 - 📄 Upload files (like PDFs) to expand knowledge
 - 🧠 Add a vector database for better search
+- 🎓 Add more obscure characters (Neville? Bellatrix? Draco? Professor McGonagall)
+- 📚 Pull real book quotes using embeddings
+- 🏰 Hogwarts map interface for exploring topics
 
 
 ---
@@ -96,3 +112,10 @@ Each character is powered by a custom prompt, using:
 ```bash
 git clone https://github.com/Roxanel17/chatbot-harry-potter.git
 cd chatbot-harry-potter
+
+
+---
+
+## ⚠️ Disclaimer
+
+This is a fan-made educational project using AI and fictional characters. All characters belong to J.K. Rowling and Warner Bros.
