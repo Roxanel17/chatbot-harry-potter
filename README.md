@@ -99,15 +99,19 @@ Each character is powered by a custom prompt, using:
 ```
 harry-potter-chatbot/
 │
-├── assets/                  # Character avatars
+├── assets/                     # Character avatars
+│   ├── old/                    # Original images
+│   ├── processed/              # Resized images
+├── screenshots/                # See how the app works
 ├── src/
-│   ├── chatbot.py           # Main Streamlit app
-│   ├── helpers.py           # Functions for prompts and greetings
-│   ├── constants.py         # Character lists and visual settings
+│   ├── chatbot.py              # Main Streamlit app
+│   ├── helpers.py              # Functions for prompts and greetings
+│   ├── constants.py            # Character lists and visual settings
+│   ├── resize_images.py        # Functions to resie characters' avatars
 │   └── character_prompts.json  # All character tone & behavior
 ├── README.md
 ├── requirements.txt
-└── .streamlit/secrets.toml  # 🔐 (OpenAI key - NOT committed)
+└── .streamlit/secrets.toml     # 🔐 (OpenAI key - NOT committed)
 ```
 
 
@@ -120,6 +124,7 @@ harry-potter-chatbot/
 ```bash
 git clone https://github.com/Roxanel17/chatbot-harry-potter.git
 cd chatbot-harry-potter
+```
 
 
 ---
