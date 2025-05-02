@@ -25,7 +25,7 @@ Try it live:
 
 ---
 
-## 🚀 Features
+## 🪄 Features
 
 - 🧙 Character selection with customized behavior (wise Dumbledore, sarcastic Snape, clumsy Dobby, etc.)
 - 🧠 Multi-character memory: Each character remembers their own conversation 
@@ -86,21 +86,29 @@ Each character is powered by a custom prompt, using:
 ## 🌟 Tech Stack
 
 - 🤖 OpenAI GPT-3.5 Turbo API — for character conversations
-- 🐍Python — backend logic
+- 🐍 Python — backend logic
 - 🌐 Streamlit — for web interface
-- JSON prompt templates
-- Hosted on **Streamlit Cloud**
+- 🧾 JSON prompt templates
+- 🚀 Hosted on **Streamlit Cloud**
 
 
 ---
 
-## 🔮 Future Improvements and Ideas
+## 📁 Project Structure
 
-- 📄 Upload files (like PDFs) to expand knowledge
-- 🧠 Add a vector database for better search
-- 🎓 Add more obscure characters (Neville? Bellatrix? Draco? Professor McGonagall)
-- 📚 Pull real book quotes using embeddings
-- 🏰 Hogwarts map interface for exploring topics
+```
+harry-potter-chatbot/
+│
+├── assets/                  # Character avatars
+├── src/
+│   ├── chatbot.py           # Main Streamlit app
+│   ├── helpers.py           # Functions for prompts and greetings
+│   ├── constants.py         # Character lists and visual settings
+│   └── character_prompts.json  # All character tone & behavior
+├── README.md
+├── requirements.txt
+└── .streamlit/secrets.toml  # 🔐 (OpenAI key - NOT committed)
+```
 
 
 ---
@@ -116,6 +124,42 @@ cd chatbot-harry-potter
 
 ---
 
+## 🔐 Setting Up secrets.toml (for local dev)
+
+To run this project locally, create a file at:
+
+```
+.streamlit/secrets.toml
+```
+
+Then add your OpenAI API key:
+
+```toml
+[general]
+OPENAI_API_KEY = "sk-..."
+```
+
+✅ This file is excluded from Git tracking using `.gitignore`, so your key stays private.
+
+
+---
+
+## 🔮 Future Improvements and Ideas
+
+- 📄 Upload files (like PDFs) to expand knowledge
+- 🧠 Add a vector database for better search
+- 🎓 Add more obscure characters (Neville? Bellatrix? Draco? Professor McGonagall)
+- 📚 Pull real book quotes using embeddings
+- 🏰 Hogwarts map interface for exploring topics
+
+
+---
+
 ## ⚠️ Disclaimer
 
 This is a fan-made educational project using AI and fictional characters. All characters belong to J.K. Rowling and Warner Bros.
+
+
+
+
+
