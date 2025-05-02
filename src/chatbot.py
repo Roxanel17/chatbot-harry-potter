@@ -87,7 +87,6 @@ for msg in chat_history[1:]:  # Skip system message (the initial system prompt)
             st.markdown(msg["content"])
     else:
         with st.chat_message("assistant", avatar = avatar_url):
-            # st.markdown(msg["content"])
             st.markdown(
                 f"""
                 <div style="background-color: {bubble_color}; padding: 10px; border-radius: 10px; color: white;">
@@ -102,15 +101,12 @@ for msg in chat_history[1:]:  # Skip system message (the initial system prompt)
 # User Input at the bottom
 if prompt := st.chat_input("Ask me anything about Harry Potter..."):
     
-    # Add user message to the chat history
-    chat_history.append({"role": "user", "content": prompt})
-
-    # Show message
+     # Show message
     with st.chat_message("user"):
         st.markdown(prompt)
 
-    # Add a precheck message for nonrelated user inputs:
-    # if not any(keyword.lower() in prompt.lower() for keyword in HARRY_POTTER_KEYWORDS):
+    # Add user message to the chat history
+    chat_history.append({"role": "user", "content": prompt})
 
     # Add a LLM-base precheck because sometimes using keywords-based checking classifies a related question as non-related
     # --- LLM precheck to detect Harry Potter context ---
@@ -119,12 +115,6 @@ if prompt := st.chat_input("Ask me anything about Harry Potter..."):
         messages=[
             {
                 "role": "system", 
-                # "content": "Is the following question about the Harry Potter universe? Respond only with 'Yes' or 'No'." #prompt 1
-                # "content": (
-                #     "You are an assistant that helps detect if a user prompt is about the Harry Potter universe. "
-                #     "If the question relates to any character, event, spell, location, house-elf, or concept from Harry Potter, "
-                #     "respond with 'Yes'. Otherwise, respond 'No'. Only respond with 'Yes' or 'No'."
-                # ) #prompt 2 -- too general
                 # Few-Shot prompting:
                 "content": (
                     "You're a classifier assistant. Your task is to determine if a user's question is related to the world of Harry Potter.\n\n"
@@ -163,7 +153,9 @@ if prompt := st.chat_input("Ask me anything about Harry Potter..."):
         # Typing animations for replies
         with st.chat_message("assistant", avatar = avatar_url):
             typing_placeholder = st.empty()
-            typing_placeholder.markdown("🪄 Thinking<span style='font-size:24px'>...</span> ✨", unsafe_allow_html=True) # Typing animation for reply
+
+            # Typing animation for reply
+            typing_placeholder.markdown("🪄 Thinking<span style='font-size:24px'>...</span> ✨", unsafe_allow_html=True) 
             time.sleep(0.2)
             typing_placeholder.markdown(
                 f""" 
@@ -177,7 +169,6 @@ if prompt := st.chat_input("Ask me anything about Harry Potter..."):
         # Typing animations for replies
         with st.chat_message("assistant", avatar = avatar_url):
             typing_placeholder = st.empty()
-            # typing_placeholder.markdown("🪄 Thinking<span style='font-size:24px'>...</span> ✨", unsafe_allow_html=True)
             
             # Realistic typing dots animation for reply
             for _ in range(2):  # loop cycles
