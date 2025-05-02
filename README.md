@@ -107,6 +107,7 @@ harry-potter-chatbot/
 │   ├── helpers.py              # Functions for prompts and greetings
 │   ├── constants.py            # Character lists and visual settings
 │   ├── resize_images.py        # Functions to resie characters' avatars
+│   ├── __init__.py             # Marks this folder as a Python package (for imports)
 │   └── character_prompts.json  # All character tone & behavior
 ├── README.md
 ├── requirements.txt
