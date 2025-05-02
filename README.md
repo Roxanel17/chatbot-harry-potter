@@ -27,6 +27,8 @@ A magical AI chatbot that lets you talk to Harry Potter characters — each with
 - 🔄 Reset chats per character, not globally 
 - 🎯 Built with clean modular code (separated constants, helpers, etc.)
 - 🧾 Few-shot prompting: responses match known traits and stories
+- ✨ Prompt refactoring via JSON (character modularity)
+- ☁️ Deploy the app online for public access
 
 
 ---
@@ -83,8 +85,6 @@ Each character is powered by a custom prompt, using:
 
 - 📄 Upload files (like PDFs) to expand knowledge
 - 🧠 Add a vector database for better search
-- ☁️ Deploy the app online for public access
-- ✨ Prompt refactoring via JSON (character modularity)
 
 
 ---
